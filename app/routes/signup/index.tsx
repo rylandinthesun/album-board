@@ -1,14 +1,6 @@
-import {
-  Box,
-  FormControl,
-  Input,
-  VStack,
-  Text,
-  FormLabel,
-  Button,
-} from "@chakra-ui/react"
 import { supabase } from "~/utils/db.server"
-import { ActionFunction, redirect, Form, useActionData, NavLink } from "remix"
+import { Form, useActionData, NavLink } from "@remix-run/react"
+import { ActionFunction, redirect } from "@remix-run/node"
 
 export const action: ActionFunction = async ({ request }) => {
   let form = await request.formData()

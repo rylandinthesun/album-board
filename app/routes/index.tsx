@@ -6,8 +6,8 @@ import NavBar from "~/components/NavBar"
 import Sidebar from "~/components/Sidebar"
 import TrackRow from "~/components/TrackRow"
 import TrackRowTop from "~/components/TrackRowTop"
-import { LoaderFunction, redirect, useLoaderData } from "remix"
-import { json } from "@remix-run/node"
+import { LoaderFunction, redirect, json } from "@remix-run/node"
+import { useLoaderData } from "@remix-run/react"
 
 let songsData = {
   album_name: "Untitled Album",

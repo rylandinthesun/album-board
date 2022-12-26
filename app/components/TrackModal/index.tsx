@@ -29,7 +29,7 @@ export default function TrackModal({
         className="modal-toggle"
       />
       <div className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box sm:w-[95%] sm:max-w-2xl">
+        <div className="modal-box sm:!w-[96%] sm:!max-w-2xl">
           <div className="flex w-full items-center">
             <h1 className="font-bold text-2xl text-accent truncate">
               {songName}
