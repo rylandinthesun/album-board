@@ -7,11 +7,11 @@
   "scripts": {
     "build": "remix build",
     "build:css": "tailwindcss -o ./app/tailwind.css",
-    "dev": "concurrently \"npm run dev:web\" \"remix watch\" \"npm run dev:css\"",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
     "dev:css": "tailwindcss -o ./app/tailwind.css --watch",
-    "dev:web": "remix dev",
     "postinstall": "remix setup node",
-    "start": "cross-env NODE_ENV=production remix-serve build"
+    "start": "cross-env NODE_ENV=production remix-serve build",
+    "start:dev": "cross-env NODE_ENV=development node server/index.js"
   },
   "dependencies": {
     "@emotion/react": "^11.8.1",

@@ -1,13 +1,6 @@
-export default function TrackRow({ instrument }: { instrument: string }) {
-  const getEmoji = (instrument: string) => {
-    if (instrument === "guitar" || instrument === "bass") return "🎸"
-    if (instrument === "drums") return "🥁"
-    if (instrument === "piano" || instrument === "keys") return "🎹"
-    if (instrument === "vocals") return "🎤"
-    if (instrument === "perc") return "🪘"
-    return "🎵"
-  }
+import getEmoji from "~/helpers/get-emoji"
 
+export default function TrackRow({ instrument }: { instrument: string }) {
   return (
     <div className="h-20 w-12">
       <div className="h-full">

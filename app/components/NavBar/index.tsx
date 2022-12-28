@@ -9,7 +9,7 @@ export default function NavBar({
   toggleTheme: () => void
 }) {
   return (
-    <nav className="navbar border-b bg-base-100 fixed px-3">
+    <nav className="navbar z-10 border-b bg-base-100 fixed px-3">
       <div className="flex-1">
         <label className="btn btn-square btn-sm btn-outline" htmlFor="sidebar">
           <Menu2 size={20} />

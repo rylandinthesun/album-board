@@ -4,7 +4,7 @@ import { supabase } from "~/utils/db.server"
 import AddTrackBtn from "~/components/AddTrackBtn"
 import NavBar from "~/components/NavBar"
 import Sidebar from "~/components/Sidebar"
-import TrackRow from "~/components/TrackRow"
+import TrackCard from "~/components/TrackCard"
 import TrackRowTop from "~/components/TrackRowTop"
 import { LoaderFunction, redirect, json } from "@remix-run/node"
 import { useLoaderData } from "@remix-run/react"
@@ -102,26 +102,18 @@ export default function Home() {
       <input id="sidebar" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         <NavBar albumName={data.album_name} toggleTheme={toggleTheme} />
-        <div className="w-full h-auto overflow-x-auto mt-20 flex justify-start md:justify-center">
-          <div className="grid space-x-4">
-            <div
-              className={`border-2 ${
-                theme === "light" ? "border-gray-200" : "border-gray-600"
-              } p-3 inline-block rounded-md`}
-            >
-              <TrackRowTop instruments={data.instruments} />
-              {data.songs.map((song: any, idx: any) => (
-                <TrackRow
-                  key={idx}
-                  songName={song.name}
-                  song_status={song.song_status}
-                  notes={song.notes}
-                  instruments={song.instruments}
-                  tracks={song.tracks}
-                />
-              ))}
-              <AddTrackBtn />
-            </div>
+        <div className="w-full h-[88vh] pt-20">
+          <div className="px-6 pb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-x-2 gap-y-4">
+            {data.songs.map((song: any, idx: any) => (
+              <TrackCard
+                key={idx}
+                songName={song.name}
+                songStatus={song.song_status}
+                notes={song.notes}
+                instruments={song.instruments}
+                tracks={song.tracks}
+              />
+            ))}
           </div>
         </div>
       </div>

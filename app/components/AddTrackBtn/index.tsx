@@ -3,7 +3,7 @@ import { CirclePlus } from "tabler-icons-react"
 export default function AddTrackBtn() {
   return (
     <>
-      <div className="divider m-0"></div>
+      {/* <div className="divider m-0"></div> */}
       <label
         htmlFor="add-song-modal"
         className="btn btn-primary w-full shadow-md flex items-center"

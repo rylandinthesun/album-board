@@ -2,17 +2,12 @@ import { Trash } from "tabler-icons-react"
 
 export default function TrackModal({
   status,
-  notes,
   songName,
-  isModalOpen,
-  onModalClose,
   tracks,
 }: {
   status: string
   notes: string[]
   songName: string
-  isModalOpen: boolean
-  onModalClose: () => void
   tracks: any
 }) {
   let amountOfSongsDone = tracks.filter(
