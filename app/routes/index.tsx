@@ -11,7 +11,6 @@ import { useLoaderData } from "@remix-run/react"
 
 let songsData = {
   album_name: "Untitled Album",
-  instruments: ["guitar", "bass", "drums", "piano", "vocals", "misc"],
   songs: [
     {
       name: "This is a long ass song name",
@@ -21,24 +20,24 @@ let songsData = {
         "Big snare sounds",
         "Add reverb to piano",
       ],
-      tracks: [
+      instruments: [
         {
           instrument: "guitar",
           status: "in progress",
-          name: "Ry",
+          name: "James",
         },
+        { instrument: "guitar", status: "open", name: "Kirk" },
         {
           instrument: "bass",
           status: "open",
-          name: "Eric",
+          name: "Robert",
         },
-        { instrument: "drums", status: "done", name: "Jake" },
-        { instrument: "piano", status: "open", name: "Mat" },
-        { instrument: "vocals", status: "open", name: "Mat" },
+        { instrument: "drums", status: "done", name: "Lars" },
+        { instrument: "vocals", status: "open", name: "James" },
         {
           instrument: "misc",
           status: "open",
-          name: "Jake",
+          name: "Lars",
         },
       ],
     },
@@ -46,24 +45,24 @@ let songsData = {
       name: "Song 2",
       song_status: "in progress",
       notes: ["Soft guitar playing", "Towel drums"],
-      tracks: [
+      instruments: [
         {
           instrument: "guitar",
           status: "done",
-          name: "Ry",
+          name: "James",
         },
+        { instrument: "guitar", status: "done", name: "Kirk" },
         {
           instrument: "bass",
           status: "done",
-          name: "Eric",
+          name: "Robert",
         },
-        { instrument: "drums", status: "open", name: "Jake" },
-        { instrument: "piano", status: "done", name: "Mat" },
-        { instrument: "vocals", status: "done", name: "Mat" },
+        { instrument: "drums", status: "open", name: "Lars" },
+        { instrument: "vocals", status: "done", name: "James" },
         {
           instrument: "misc",
           status: "open",
-          name: "Jake",
+          name: "Lars",
         },
       ],
     },
@@ -103,7 +102,7 @@ export default function Home() {
       <div className="drawer-content">
         <NavBar albumName={data.album_name} toggleTheme={toggleTheme} />
         <div className="w-full h-[88vh] pt-20">
-          <div className="px-6 pb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-x-2 gap-y-4">
+          <div className="px-6 pb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-x-2 gap-y-4 auto-rows-auto">
             {data.songs.map((song: any, idx: any) => (
               <TrackCard
                 key={idx}
@@ -111,7 +110,6 @@ export default function Home() {
                 songStatus={song.song_status}
                 notes={song.notes}
                 instruments={song.instruments}
-                tracks={song.tracks}
               />
             ))}
           </div>

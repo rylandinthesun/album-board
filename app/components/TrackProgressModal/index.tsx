@@ -1,29 +1,31 @@
-import { Trash } from "tabler-icons-react"
-
-export default function TrackModal({
+export default function TrackProgressModal({
   status,
   songName,
-  tracks,
+  instruments,
 }: {
   status: string
-  notes: string[]
   songName: string
-  tracks: any
+  instruments: any
 }) {
-  let amountOfSongsDone = tracks.filter(
+  let amountOfSongsDone = instruments.filter(
     (track: any) => track.status === "done"
   ).length
 
-  let progressBarValue = Math.floor((amountOfSongsDone / tracks.length) * 100)
+  let progressBarValue = Math.floor(
+    (amountOfSongsDone / instruments.length) * 100
+  )
 
   return (
     <>
       <input
         type="checkbox"
-        id={`${songName}-modal`}
+        id={`${songName}-progress-modal`}
         className="modal-toggle"
       />
-      <div className="modal modal-bottom sm:modal-middle">
+      <label
+        htmlFor={`${songName}-progress-modal`}
+        className="modal modal-bottom sm:modal-middle"
+      >
         <div className="modal-box sm:!w-[96%] sm:!max-w-2xl">
           <div className="flex w-full items-center">
             <h1 className="font-bold text-2xl text-accent truncate">
@@ -31,7 +33,7 @@ export default function TrackModal({
             </h1>
           </div>
           <label
-            htmlFor={`${songName}-modal`}
+            htmlFor={`${songName}-progress-modal`}
             className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
           >
             ✕
@@ -60,21 +62,14 @@ export default function TrackModal({
                   {amountOfSongsDone}
                 </div>
                 <div className="stat-desc">
-                  of <span className="font-bold">{tracks.length}</span> tracked
+                  of <span className="font-bold">{instruments.length}</span>{" "}
+                  tracked
                 </div>
               </div>
             </div>
           </div>
-          <div className="modal-action">
-            <label htmlFor={`${songName}-modal`} className="btn btn-ghost">
-              Cancel
-            </label>
-            <button className="btn btn-error gap-2">
-              <Trash /> Delete song
-            </button>
-          </div>
         </div>
-      </div>
+      </label>
     </>
   )
 }

@@ -18,9 +18,12 @@ export default function TrackCell({
 
   return (
     <div className="w-full flex items-center justify-between">
-      <div className="w-24 space-x-2 flex items-center justify-between pr-2">
-        <div className="text-bas capitalize font-semibold">{instrument}</div>
-        <div className="text-lg">{getEmoji(instrument)}:</div>
+      <div className="max-w-[75%] space-x-2 flex items-center justify-between pr-2">
+        <div className="text-lg">{getEmoji(instrument)}</div>
+        <div className="capitalize font-semibold">
+          {instrument}
+          <span className="badge ml-2">{name}</span>
+        </div>
       </div>
       {status === "in progress" ? (
         <button
